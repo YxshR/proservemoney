@@ -9,11 +9,12 @@ connect()
 
 export async function POST(request: NextRequest) {
     try {
+        
         const reqBody = await request.json()
         const {username, email, password} = reqBody
 
         console.log(reqBody)
-        const user = User.findOne(email)
+        const user = await User.findOne({email})
 
         if (user) {
             return NextResponse.json({error: "User already existed"}, {status:400})
@@ -46,4 +47,4 @@ export async function POST(request: NextRequest) {
             {status:500}
         )
     }
-}
+}   

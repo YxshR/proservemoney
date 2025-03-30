@@ -23,8 +23,8 @@ export default function SignupPage() {
             const response = await axios.post ("/api/users/signup", user)
             console.log("Signup Success", response.data)
             router.push("/login")
-            
-        } catch (error: any) {
+
+        } catch (error: unknown) {
             console.log("Signup error",error)
             toast.error(error.message)
         } finally {
@@ -58,7 +58,7 @@ export default function SignupPage() {
 
 
             <label htmlFor="password">password</label>
-            <input className="p-2 bg-gray-800 border-gray-300 rounded-lg mb-4 focus:border-gray-600" type="text" id="password" value={user.password} onChange={(e) =>
+            <input className="p-2 bg-gray-800 border-gray-300 rounded-lg mb-4 focus:border-gray-600" type="password" id="password" value={user.password} onChange={(e) =>
             setUser({ ...user, password: e.target.value })
             
             }placeholder="password" />  

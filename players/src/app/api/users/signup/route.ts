@@ -30,6 +30,7 @@ export async function POST(request: NextRequest) {
             email,
             password: hashedPassword
         })
+        console.log(newUser.password)
 
         const savedUser = await newUser.save()
         console.log(savedUser)
@@ -42,6 +43,7 @@ export async function POST(request: NextRequest) {
             }
         )
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
         return NextResponse.json({error: error.message},
             {status:500}

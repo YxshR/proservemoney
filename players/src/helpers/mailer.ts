@@ -16,12 +16,12 @@ export const sendEmail = async({email, emailType, userId}: any) => {
 
         // Looking to send emails in production? Check out our Email API/SMTP product!
         const transport = nodemailer.createTransport({
-            host: "sandbox.smtp.mailtrap.io",
-            port: 2525,
-            auth: {
-            user: process.env.USER_ID,
-            pass: process.env.PASSWORD_MAILER
-            }
+          host: "sandbox.smtp.mailtrap.io",
+          port: 2525,
+          auth: {
+            user: "1d985004bf04c7",
+            pass: "ccfb067371f379"
+          }
         });
 
 
